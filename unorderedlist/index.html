@@ -1,0 +1,31 @@
+
+<html>
+<head>
+    <title>Subjects List</title>
+</head>
+<body>
+    <h1>Subjects</h1>
+    <div id="subjects-container"></div>
+
+    <script>
+        const subjects = ["Math", "Science", "History", "Geography", "English"];
+
+        function displaySubjects(subjects) {
+            const container = document.getElementById('subjects-container');
+            const ul = document.createElement('ul');
+            
+            subjects.forEach(subject => {
+                const li = document.createElement('li');
+                
+                li.textContent = subject;
+                
+                ul.appendChild(li);
+            });
+            
+            container.appendChild(ul);
+        }
+
+        displaySubjects(subjects);
+    </script>
+</body>
+</html>

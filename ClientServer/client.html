@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP Client</title>
+</head>
+<body>
+    <h1>HTTP Client</h1>
+    <button id="requestButton">Make Request</button>
+    <p id="responseText"></p>
+
+    <script>
+        document.getElementById('requestButton').addEventListener('click', () => {
+            fetch('http://localhost:8080')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('responseText').innerText = data;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>

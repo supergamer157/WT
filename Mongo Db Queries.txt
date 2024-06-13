@@ -1,0 +1,59 @@
+1.	To insert a document in a student collection which has atleast 4 key value pair
+Ans:
+db.student.insertOne({
+    name: "Alice",
+    age: 20,
+    department: "CSE",
+    marks: 85
+});
+
+2.	To update the mark of the student whose name is ‘Ram’
+Ans:
+db.student.updateOne(
+    { name: "Ram" },
+    { $set: { marks: 90 } }
+);
+
+3.	To count the number of rows in a student collection
+Ans:
+db.student.countDocuments();
+
+4.	To display the last five documents in a collection
+Ans:
+db.student.find().sort({_id: -1}).limit(5);
+
+5.	To increment the mark of all students by 10
+Ans:
+db.student.updateMany({}, { $inc: { marks: 10 } });
+
+6.	To change the default id of a document while inserting a document in a collection
+Ans:
+db.student.insertOne({
+    _id: ObjectId("newObjectIdHere"),
+    name: "John",
+    age: 22,
+    department: "EEE",
+    marks: 75
+});
+
+7.	To display name and age of a student from a collection
+Ans:
+
+db.student.find({}, { _id: 0, name: 1, age: 1 });
+
+8.	To update the mark of the student whose name is ‘Raju’ if a document doesn’t exist insert into a collection
+Ans:
+db.student.updateOne(
+    { name: "Raju" },
+    { $set: { marks: 95 } },
+    { upsert: true }
+);
+
+9. To retrieve document from a collection
+Ans:
+db.student.find({ name: "Alice" });
+
+10.	To delete a student collection from a database
+Ans:
+db.student.drop();
+
